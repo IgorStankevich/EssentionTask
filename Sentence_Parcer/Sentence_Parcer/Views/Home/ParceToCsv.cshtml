@@ -1,0 +1,34 @@
+﻿@model Sentence_Parcer.ViewModels.TextViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Parce To Csv</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        <div class="form-group">
+            @Html.Label("Input your text here:", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Parce" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    <a href="@Url.Action("Index", "Home")">Back to MainPage </a>
+</div>
+
+
+

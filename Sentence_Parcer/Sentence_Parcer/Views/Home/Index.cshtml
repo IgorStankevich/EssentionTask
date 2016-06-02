@@ -1,0 +1,22 @@
+﻿@model Sentence_Parcer.ViewModels.TextViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+
+
+
+<div>
+    <a href="@Url.Action("ParceToXML", "Home")" />
+    <input type="button" class="btn btn-primary navbar-btn" style="text-decoration: none; width: 100%; height: 50%; font-size: 1.2em; " class="btn-link" value="XML Formatter" />
+
+</div>
+<div>
+    <a href="@Url.Action("ParceToCsv", "Home")" />
+    <input type="button" class="btn btn-primary navbar-btn" style="text-decoration: none; width: 100%; height: 50%; font-size: 1.2em;" class="btn-link" value="CSV Formatter" />
+</div>
+<div>
+    <a href="@Url.Action("ParceToCsvAndXml", "Home")" />
+    <input type="button" class="btn btn-primary navbar-btn" style="text-decoration: none;width: 100%; height: 50%; font-size: 1.2em;" class="btn-link" value="CSV and XML Formatter" />
+</div>

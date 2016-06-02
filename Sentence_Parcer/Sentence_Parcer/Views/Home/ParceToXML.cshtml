@@ -1,0 +1,44 @@
+﻿@model Sentence_Parcer.ViewModels.TextViewModel
+@{
+    ViewBag.Title = "ParceToXML";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Parce To XML</h2>
+        <hr />
+        <div class="form-group">
+            @Html.Label("Input your text here:", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { id = "textarea", @class = "form-control" } })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Parce" class="btn btn-default" id="add" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    <a href="@Url.Action("Index", "Home")">Back to MainPage </a>
+</div>
+
+<script type="text/javascript">
+    document.getElementById('add').onclick = function()
+    {
+        var text = $('#Text').val();
+        $.ajax({
+            url: '/api/values/',
+            type: 'POST',
+            data: JSON.stringify(text),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+            }
+        });
+    };
+
+</script>
